@@ -1,0 +1,21 @@
+<div class="big-box">
+  <h1 class= big-header>New Game</h1>
+  <div class= "box">
+    <div class= "game-letters">
+      <% @grid.each do |letter|  %>
+      <div class= "letter">
+        <p>
+          <%=letter %>
+        </p>
+      </div>
+      <% end %>
+    </div>
+    <div class= "letter-form">
+      <form action="/score" method= "post">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %><%= hidden_field_tag :grid, @grid %>
+        <input class="input-textfield" type="text" name="word" placeholder="word">
+        <button>Submit!</button>
+      </form>
+    </div>
+  </div>
+</div>
